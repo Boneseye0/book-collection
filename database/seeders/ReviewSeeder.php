@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Review;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
