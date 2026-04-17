@@ -1,5 +1,19 @@
 <template>
-    <h1>
-        Wello Horld!
-    </h1>
+    <nav>
+        <RouterLink :to="{name: 'books.overview'}">Boeken Overzicht</RouterLink> |
+        <RouterLink :to="{name: 'books.create'}">Nieuw Boek</RouterLink>
+    </nav>
+    <RouterView></RouterView>
+
 </template>
+
+
+
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router';
+
+
+
+
+
+</script>
