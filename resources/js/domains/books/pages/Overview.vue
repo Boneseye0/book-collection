@@ -4,12 +4,15 @@
             <tr>
                 <th>Title</th>
                 <th>Summary</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="book in getAllBooks" :key="book.id">
                 <td>{{ book.title }}</td>
                 <td>{{ book.description }}</td>
+                <td><RouterLink :to="{ name: 'books.edit', params: { id: book.id } }">edit</RouterLink></td>
+                <td><button @click="deleteBook(book.id)">DELETE</button></td>
             </tr>
         </tbody>
     </table>
@@ -18,7 +21,8 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { fetchBooks, getAllBooks } from '../store';
+import { fetchBooks, getAllBooks, deleteBook } from '../store';
+import { RouterLink } from 'vue-router';
 
 
 
