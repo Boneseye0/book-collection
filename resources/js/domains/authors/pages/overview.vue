@@ -8,9 +8,10 @@
         </thead>
         <tbody>
             <tr v-for="author in getAllAuthors" :key="author.id">
-                <td>{{author.id}}</td>
+                <td>{{ author.id }}</td>
                 <td>{{ author.name }}</td>
-
+                <td><RouterLink :to="{ name: 'authors.edit', params: { id: author.id } }">Edit - </RouterLink></td>
+                <td><button @click="deleteAuthor(author.id)">DELETE</button></td>
             </tr>
         </tbody>
     </table>
@@ -18,7 +19,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { fetchAuthors, getAllAuthors } from '../store';
+import { deleteAuthor, fetchAuthors, getAllAuthors } from '../store';
 
 
 

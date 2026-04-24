@@ -10,7 +10,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/books', [BookController::class, 'index']);
-route::post('/books', [BookController::class, 'store']);
+Route::post('/books', [BookController::class, 'store']);
 Route::put('/books/{book}', [BookController::class, 'update']);
 Route::delete('/books/{book}', [BookController::class, 'destroy']);
 Route::get('/authors', [AuthorController::class, 'index']);
+Route::post('/authors', [AuthorController::class, 'store']);
+Route::put('/authors/{author}', [AuthorController::class, 'update']);
+Route::delete('/authors/{author}', [AuthorController::class, 'destroy']);
