@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="book in getAllBooks" :key="book.id">
+            <tr v-for="book in books" :key="book.id">
                 <td>{{ book.title }}</td>
                 <td>{{ book.description }}</td>
                 <td><RouterLink :to="{ name: 'books.edit', params: { id: book.id } }">edit</RouterLink></td>
@@ -21,10 +21,13 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { fetchBooks, getAllBooks, deleteBook } from '../store';
+import { fetchBooks, getAllBooks, deleteBook, bookStore } from '../store';
 import { RouterLink } from 'vue-router';
 
 
+bookStore.actions.getAll()
 
-fetchBooks()
+const books = bookStore.getters.all
+
+// fetchBooks()
 </script>

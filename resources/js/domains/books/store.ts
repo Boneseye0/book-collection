@@ -1,6 +1,7 @@
 import { computed, ref } from "vue";
-import axios from "axios";
+import axios, { all } from "axios";
 import { deleteRequest, getRequest, postRequest, putRequest } from "../../services/http";
+import { storeModuleFactory } from "../../services/store";
 
 export type Book = {
     id: number,
@@ -8,9 +9,12 @@ export type Book = {
     description: string,
 };
 
-const books = ref<Book[]>([]);
 
-export const getAllBooks = computed(() => books.value);
+export const bookStore = storeModuleFactory('books')
+
+
+const books = ref<Book[]>([]);
+// export const getAllBooks = computed(() => books.value);
 
 export const getBookById = (id:number) => computed(() => books.value.find(book => book.id == id ));
 
